@@ -25,6 +25,7 @@ A minimal **study & focus app** with ambient sounds, streak tracking, timers, an
 - **Backend**: Next.js API Routes
 - **Database**: MongoDB (Mongoose)
 - **Deployment**: Vercel
+- **Authentication**: Clerk
 
 ---
 
