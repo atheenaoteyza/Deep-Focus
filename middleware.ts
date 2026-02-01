@@ -1,21 +1,14 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"; // Use this! NOT next/navigation
 
-// 1. Define routes that should be accessible without logging in
 const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "/sign-up(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   const { userId } = await auth();
 
-  // 2. If the user is signed in and tries to access the landing page ('/'),
-  // redirect them straight to the dashboard.
+  // Redirect signed-in users away from the landing page
   if (userId && req.nextUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/dashboard", req.url));
-  }
-
-  // 3. Optional: Protect the dashboard from signed-out users
-  if (!userId && !isPublicRoute(req)) {
-    return (await auth()).redirectToSignIn();
   }
 });
 
