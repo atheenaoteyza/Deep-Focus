@@ -45,23 +45,30 @@ export default function PomodoroSettings({ state, dispatch }) {
   return (
     <>
       {/* Trigger */}
+      {/* TRIGGER: The transition happens HERE */}
       <div
         ref={iconRef}
         onClick={() => setModal((prev) => !prev)}
-        className="p-3 cursor-pointer border border-gray-600 rounded-2xl bg-[rgba(20,20,20,0.7)] hover:bg-[rgba(20,20,20,1)]"
+        className={`cursor-pointer bg-[rgba(20,20,20,0.7)] hover:bg-[rgba(20,20,20,1)] 
+    transition-all duration-500 ease-in-out flex items-center justify-center
+    ${
+      state.isPomodoroOn
+        ? "max-w-[100px] opacity-100 scale-100 p-3 border border-gray-600 rounded-2xl"
+        : "max-w-0 opacity-0 scale-50 pointer-events-none p-0 border-0 m-0 overflow-hidden"
+    }`}
       >
-        <div className="flex items-center">
+        {/* Add min-width to the icon so it doesn't squish during the slide */}
+        <div className="min-w-[32px] flex items-center justify-center">
           <TomatoSVG className="h-8 w-8" />
         </div>
       </div>
-
-      {/* Modal */}
+      {/* MODAL: Stays fixed and outside the transition div */}
       {modal && (
         <section
           ref={modalRef}
-          className="absolute left-1/2 top-1/2 max-h-[90vh] w-[90vw] sm:w-[450px] overflow-y-auto transform -translate-x-1/2 -translate-y-1/2
-             p-4 hover:border border-gray-600 rounded-2xl 
-             bg-[rgba(20,20,20,0.9)] hover:bg-[rgba(20,20,20,1)]"
+          className="fixed left-1/2 top-1/2 z-[9999] max-h-[90vh] w-[90vw] sm:w-[450px] overflow-y-auto transform -translate-x-1/2 -translate-y-1/2
+             p-6 border border-gray-600 rounded-2xl 
+             bg-[rgba(15,15,15,0.98)] shadow-2xl backdrop-blur-lg text-white"
         >
           <h1 className="font-bold text-xl text-center">
             Pomodoro Timer Settings
