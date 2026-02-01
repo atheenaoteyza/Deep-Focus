@@ -90,8 +90,8 @@ export default function Pomodoro({ state, dispatch }) {
         state.workCount + 1 >= state.settings.intervalsBeforeLong
           ? "longBreak"
           : state.mode === "work"
-          ? "shortBreak"
-          : "work";
+            ? "shortBreak"
+            : "work";
 
       if (state.mode === "work") dispatch({ type: "INCREMENT_WORK" });
       dispatch({ type: "SWITCH_MODE", payload: nextMode });
@@ -156,7 +156,6 @@ export default function Pomodoro({ state, dispatch }) {
         <button
           className="p-4 border border-gray-600 rounded-2xl bg-[rgba(20,20,20,0.7)] hover:bg-[rgba(20,20,20,1)]"
           onClick={() => {
-            // Check if timer is at 00:00 and not running - restart video
             if (!state.isRunning && state.stopwatchTime === 0) {
               dispatch({ type: "RESTART_VIDEO" });
             }
@@ -167,11 +166,24 @@ export default function Pomodoro({ state, dispatch }) {
         </button>
 
         <DoneButton handleComplete={handleComplete} isLoading={isLoading} />
+
         <PomodoroSwitch
           setIsOn={() => dispatch({ type: "TOGGLE_POMODORO" })}
           isOn={state.isPomodoroOn}
         />
+
+        {/* Smooth Transition Wrapper
+        <div
+          className={`flex items-center transition-all duration-500 ease-in-out overflow-hidden ${
+            state.isPomodoroOn
+              ? "max-w-[100px] opacity-100 scale-100"
+              : "max-w-0 opacity-0 scale-75 pointer-events-none"
+          }`}
+        > */}
+
         <PomodoroSettings state={state} dispatch={dispatch} />
+        {/* </div> */}
+
         <Calendar dates={dates} />
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl  ">
           {" "}
