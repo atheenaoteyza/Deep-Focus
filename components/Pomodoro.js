@@ -154,7 +154,7 @@ export default function Pomodoro({ state, dispatch }) {
       </div>
       <div className="play-button flex justify-center gap-2 items-center">
         <button
-          className="p-4 border border-gray-600 rounded-2xl bg-[rgba(20,20,20,0.7)] hover:bg-[rgba(20,20,20,1)]"
+          className="cursor-pointer p-4 border border-gray-600 rounded-2xl bg-[rgba(20,20,20,0.7)] hover:bg-[rgba(20,20,20,1)]"
           onClick={() => {
             if (!state.isRunning && state.stopwatchTime === 0) {
               dispatch({ type: "RESTART_VIDEO" });

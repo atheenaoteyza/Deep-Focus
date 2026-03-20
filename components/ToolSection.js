@@ -59,13 +59,13 @@ export default function ToolSection({
             </div>
           </div>
           <div className="p-2 flex">
-            <div className=" p-2  hover:border-gray-600 rounded-3xl">
+            <div className="cursor-pointer p-2 rounded-3xl transition-all duration-200 hover:scale-110 active:scale-95">
               <SlidersIcon
                 onClick={() => handleSettingsClick("volume")}
                 className="w-7 h-7"
               ></SlidersIcon>
             </div>
-            <div className=" p-2  hover:border-gray-600 rounded-3xl">
+            <div className="cursor-pointer p-2  hover:border-gray-600 rounded-3xl transition-all duration-200 hover:scale-110 active:scale-95">
               <DeviceIcon
                 onClick={() => handleSettingsClick("playlist")}
                 className={`w-7 h-7 stroke-none`}
