@@ -149,7 +149,7 @@ export default function MusicPlayer({
                     payload: seanStudy,
                   })
                 }
-                className="bg-[#3F3351] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#2E243A] transition"
+                className="cursor-pointer bg-[#3F3351] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#2E243A] transition"
               >
                 <SunriseIcon></SunriseIcon>
               </button>
@@ -160,7 +160,7 @@ export default function MusicPlayer({
                     payload: seasideLofi,
                   })
                 }
-                className="bg-[#B3305E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#8A254A] transition"
+                className="cursor-pointer bg-[#B3305E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#8A254A] transition"
               >
                 <BirdIcon></BirdIcon>
               </button>
@@ -171,7 +171,7 @@ export default function MusicPlayer({
                     payload: lofiGirl,
                   })
                 }
-                className="bg-[#0D4D4D] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#083636] transition"
+                className="cursor-pointer bg-[#0D4D4D] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#083636] transition"
               >
                 <BookOpen />
               </button>
@@ -182,7 +182,7 @@ export default function MusicPlayer({
                     payload: rainLofi,
                   })
                 }
-                className="bg-[#1E1E2E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#13131A] transition"
+                className="cursor-pointer bg-[#1E1E2E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#13131A] transition"
               >
                 <CloudHail />
               </button>
@@ -192,7 +192,7 @@ export default function MusicPlayer({
                     type: "TOGGLE_VIDEO",
                   })
                 }
-                className="bg-[#1E1E2E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#13131A] transition"
+                className="cursor-pointer bg-[#1E1E2E] text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#13131A] transition"
               >
                 <RemoveVideoIcon />
               </button>
@@ -216,8 +216,8 @@ title={
               className={`${
                 audioState.rainEffect
                   ? `bg-yellow-700 hover:bg-yellow-900`
-                  : `bg-[#13131A] `
-              } text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2  transition cursor-pointer`}
+                  : `bg-[#13131A] hover:bg-[#252538]`
+              } text-white border rounded-full border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 transition-colors duration-200 cursor-pointer`}
             >
               Rain Effect {audioState.rainEffect ? "On" : "Off"}
             </button>
@@ -237,7 +237,7 @@ title={
             {/* Add Button */}
             <button
               onClick={handleAddVideo}
-              className="bg-[#865DFF] text-white border rounded-xl border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#6846CC] transition"
+              className="cursor-pointer bg-[#865DFF] text-white border rounded-xl border-gray-600 w-full mb-[1rem] flex items-center justify-center p-2 hover:bg-[#6846CC] transition"
             >
               <PlusIcon className="mr-2" />
               Add YouTube Custom
